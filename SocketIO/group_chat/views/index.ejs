@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href='/styles.css'></link>
+    <title>Group Chat</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+        
+            var socket = io.connect();
+
+            socket.on('initialize', function(data){
+                for (message in data.messages){
+                    $('.chat-box').append(data.messages[message]);
+                }
+            })
+
+            var name = prompt("Please enter your name:", "Unknown Llama");
+            socket.emit("name_declaration", {'name':name});
+            socket.on('receiving_name',function(data){
+                console.log("Hey. Received message: " + data.welcome);
+                $('.chat-box').append(data.welcome);
+            })
+
+            //If message sent
+            $('.button').click(function (e) { 
+                e.preventDefault();
+                var message = $('#message').val();
+                socket.emit('message_written', {'message':message, 'user':name});
+                $('#message').val("");
+            });
+
+            //Receive messages and post.
+            socket.on('message_post', function(data){
+                $('.chat-box').append(data.messages);
+            })
+
+         });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="chat">
+            <p>Conversation Board</p>
+            <div class='chat-box'></div>
+            <form id='form'>
+                <input id='message' size='130' type="text">
+                <button class='button'>Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

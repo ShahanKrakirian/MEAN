@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel='stylesheet' type='text/css' href='/stylesheets/styles.css'></style>
+    <title>Login Registration</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<!--Wrapper-->
+    <div id="wrapper">
+        <h1>Welcome!</h1>
+        <!--Register Side-->
+        <div id="register" class='inline-block'>
+            <h4>Register</h4>
+            <br>
+            <!--Send to /register-->
+            <form action="/register" method="post">
+                <table>
+                    <tr>
+                        <!--Email-->
+                        <td>Email:</td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <!--First_Name-->
+                        <td>First Name:</td>
+                        <td><input type='text' name='first_name'></td>
+                    </tr>
+                    <tr>
+                        <!--Last_Name-->
+                        <td>Last_Name:</td>
+                        <td><input type='text' name='last_name'></td>
+                    </tr>
+                    <tr>
+                        <!--Password-->
+                        <td>Password:</td>
+                        <td><input type='password' name='password'></td>
+                    </tr>
+                    <tr>
+                        <!--Confirm Password-->
+                        <td>Confirm Password:</td>
+                        <td><input type='password' name='confirm_password'></td>
+                    </tr>
+                    <tr>
+                        <!--Birthday-->
+                        <td>Birthday:</td>
+                        <td><input type='date' name='birthday'></td>
+                    </tr>
+                </table>
+                <br>
+                <!--Submit-->
+                <input type="submit" value='Register'>
+            </form>
+        </div>
+        <!--Login Side-->
+        <div id="login" class='inline-block'>
+            <h4>Login</h4>
+            <br>
+            <!--Send to /login-->
+            <form action="/login" method="post">
+                <table>
+                    <tr>
+                        <!--Email-->
+                        <td>Email:</td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <!--Password-->
+                        <td>Password:</td>
+                        <td><input type='password' name='password'></td>
+                    </tr>
+                </table>
+                <br>
+                <input type="submit" value='Login'>
+            </form>
+        </div>
+        <br>
+        <% if(messages.user) { %>
+            <% for (var x of messages.user) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html>

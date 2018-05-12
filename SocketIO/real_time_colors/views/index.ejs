@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href='/styles.css'></link>
+    <title>Colors</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            
+            var socket = io.connect();
+            
+            socket.on('initialize', function(data){
+                $('#wrapper').addClass(data.current_color);
+            })
+
+            //Green Click
+            $('.g').click(function (e) { 
+                e.preventDefault();
+                socket.emit('green');
+            });
+            
+            //Green Click Response
+            socket.on('change_green', function(){
+                $('#wrapper').removeClass();
+                $('#wrapper').addClass('green');
+            })
+            //Blue Click
+            $('.b').click(function (e) { 
+                e.preventDefault();
+                socket.emit('blue');
+            });
+            
+            //Blue Click Response
+            socket.on('change_blue', function(){
+                $('#wrapper').removeClass();
+                $('#wrapper').addClass('blue');
+            })
+            //Pink Click
+            $('.p').click(function (e) { 
+                e.preventDefault();
+                socket.emit('pink');
+            });
+            
+            //Pink Click Response
+            socket.on('change_pink', function(){
+                $('#wrapper').removeClass();
+                $('#wrapper').addClass('pink');
+            })
+
+            
+
+         });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <button class='button-style g'>Green</button>
+        <button class='button-style b'>Blue</button>
+        <button class='button-style p'>Pink</button>
+    </div>
+</body>
+</html>

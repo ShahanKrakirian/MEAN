@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel='stylesheet' type='text/css' href='/stylesheets/styles.css'></style>
+    <title>Basic Mongoose</title>
+</head>
+<body>
+    <form action="/users" method='post'>
+        Name: <input type="text" name='name'>
+        Age: <input type="text" name='age'>
+        <input type="submit">
+    </form>
+    <% for (var user in users) { %>
+        <p>Name: <%= users[user].name %></p>
+        <p>Age: <%= users[user].age %></p>
+    <% } %>
+</body>
+</html>

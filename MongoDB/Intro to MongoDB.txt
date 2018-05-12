@@ -1,0 +1,45 @@
+1. use my_first_db
+2. db.createCollection('students')
+3/4. 	-db.students.insert({name: "Shahan", home_state: "CA", lucky_number: "24", 		birthday: {month: 06, day: 29, year: 1991}})
+	-db.students.insert({name: "Shahan", home_state: "CA", lucky_number: "24", 		birthday: {month: 06, day: 29, year: 1992}})
+	-db.students.insert({name: "Shahan", home_state: "CA", lucky_number: "24", 		birthday: {month: 06, day: 29, year: 1993}})
+	-db.students.insert({name: "Shahan", home_state: "CA", lucky_number: "24", 		birthday: {month: 06, day: 29, year: 1994}})
+	-db.students.insert({name: "Shahan", home_state: "CA", lucky_number: "24", 		birthday: {month: 06, day: 29, year: 1995}})	
+
+5. db.students.find()
+6. db.students.find({$or: [{home_state:"CA"}, {home_state:"WA"}]})
+7. 
+	-db.students.find({lucky_number: {$gt: 3}})
+	-db.students.find({lucky_number: {$lte: 10}})
+	-db.students.find({lucky_number: {$gte: 1, $lte: 9}})
+
+8. db.students.update({},{$set: {interests: ['coding', 'brunch', 'mongoDB']}}, {multi:true})
+
+9. 	-db.students.update({name:"Jeff"},{$push: {interests:"My name is 	Jeff"}})
+	-db.students.update({name:"Michael"},{$push: {interests:"My name is 	Michael"}})
+	
+10. 	-db.students.update({name:"Jeff"},{$push: {interests:"taxes"}})
+
+11.	-db.students.update({name:"Jeff"},{$pull: {interests:"taxes"}})
+
+12.	-db.students.deleteMany({home_state:"WA"})
+
+13.	-db.students.remove({name:"Jeff"})
+
+14.	-db.students.remove({lucky_number: {$gt: 5}})
+
+15. 	-db.students.update({}, {$set: {number_of_belts: 0}},{multi:true})
+
+16. 	-db.students.update({home_state:"NV"}, {$inc: {number_of_belts: 1}},	{multi:true})
+
+17. 	-db.students.update({}, {$rename: {number_of_belts: "belts_earned"}},	{multi:true})
+
+18. 	-db.students.update({}, {$unset: {lucky_number:1}},{multi:true})
+
+19. 	-db.students.update({}, {$currentDate: {updated_on: true}},		{multi:true})
+
+
+
+
+
+

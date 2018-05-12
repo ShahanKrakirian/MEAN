@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel='stylesheet' type='text/css' href='/stylesheets/styles.css'></style>
+    <title>Cars and Cats</title>
+</head>
+<body>
+    <h1>Details Page for <%= cat.name %></h1>
+    <div class='small'>
+        <img class='fit' src="/images/<%= cat.name %>.jpg">
+    </div>
+    Favorite Food: <%= cat.favorite_food %>
+    <br><br>Fur Colors:
+    <ul>
+        <% for (var color in cat.colors) { %>
+            <li><%= cat.colors[color] %></li>
+        <% } %>
+    </ul>
+</body>
+</html>

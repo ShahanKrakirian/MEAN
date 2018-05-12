@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel='stylesheet' type='text/css' href='/stylesheets/styles.css'></style>
+    <title>Button Game</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            
+            var socket = io.connect();
+
+            //Initialize connection.
+            socket.on('initialize', function(data){
+                $('.header').html("The button has been pushed " + data.count + " time(s)");
+            })
+
+            //If someone clicks epic button.
+            $('.epic-button').click(function (e) { 
+                e.preventDefault();
+                socket.emit('add');
+            });
+
+            //Handle response from epic button click.
+            socket.on('add_response', function(data){
+                $('.header').html("The button has been pushed " + data.count + " time(s)");
+            })
+
+            //If someone resets. 
+            $('.reset').click(function (e) { 
+                e.preventDefault();
+                socket.emit('reset');
+            });
+
+            //Receive Reset 
+            socket.on('reset_action', function(data){
+                $('.header').html("The button has been pushed " + data.count + " time(s)");
+            })
+
+         });
+    </script>
+</head>
+<body>
+    <h1 class='header'></h1>
+    <br>
+    <p>Push the button to update the count!</p>
+    <button class='epic-button'>Push the epic button</button>
+    <br>
+    <br>
+    <button class='reset'>Reset count</button>
+</body>
+</html>

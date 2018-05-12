@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+    <script type ="text/javascript" src="/script.js"></script>
+    <link rel="stylesheet" href="/style.css" media="screen">
+
+</head>
+<body>
+    <div id="tupac">
+        <form action="/create-message" method='post'>
+            Name: 
+            <input type="text" name='name'>
+            Message: 
+            <textarea name="message" cols="50" rows="10"></textarea>
+            <input type="submit" value="Post message">
+        </form>
+    </div>
+    <div id="content">
+        <% for (var message in messages) { %> <br>
+        Message posted by: <%= messages[message].name %> <br>
+        Message body: <%= messages[message].message %> <br><br> 
+        <div class="indent">
+            <% for (var comment in messages[message].comments) { %>
+            <% if (messages[message].comments[comment].comment) { %> <br>
+            Name: <%= messages[message].comments[comment].name %> <br>
+            Comment: <%= messages[message].comments[comment].comment %> <br>
+            <% } %>
+            <% } %>
+            <form action="<%= '/create-comment/' + messages[message]._id %>" method='post'>
+                Name: 
+                <input type="text" name='name'>
+                Comment: 
+                <textarea name="comment" cols="50" rows="10"></textarea>
+                <input type="submit" value="Post comment">
+            </form>
+        <% } %>
+        </div>
+        <% if(messages.form) { %>
+            <% for (var x of messages.form) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    </div>
+    
+</body>
+</html>

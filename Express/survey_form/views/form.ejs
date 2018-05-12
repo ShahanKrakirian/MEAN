@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel='stylesheet' type='text/css' href='/stylesheets/styles.css'></style>
+    <title>Survey Info</title>
+</head>
+<body>
+    <form action="/results" method='post'>
+        Your Name: <input type="text" name='name'>
+        Dojo Location: 
+        <select name="location">
+            <option value="mountain view">Mountain View</option>
+            <option value="burbank">Burbank</option>
+            <option value="seattle">Seattle</option>
+        </select>
+        <select name="language">
+            <option value="javascript">Javascript</option>
+            <option value="python">Python</option>
+            <option value="ruby">Ruby</option>
+        </select>
+        <textarea name="comment" cols="50" rows="10"></textarea>
+        <input type="submit">
+    </form>
+</body>
+</html>

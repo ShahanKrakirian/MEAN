@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel='stylesheet' type='text/css' href='/stylesheets/styles.css'></style>
+    <title>Survey</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <form action="/quotes/process" id='form' method="post">
+        Your Name: <input class='name' type="text" name='name'><br><br>
+        Your Quote: <textarea name="quote" id="" cols="50" rows="10"></textarea><br><br>
+        <input type="submit" value="Add my quote!"><br><br>
+    </form>
+    <button><a href='/quotes'>Skip to quotes!</a></button>
+    <br><br>
+    <% if(messages.form) { %>
+        <% for (var x of messages.form) { %>
+            <h3><%= x %></h3>
+        <% } %>
+    <% } %>
+</body>
+</html>

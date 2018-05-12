@@ -1,0 +1,24 @@
+.button-style{
+    border-radius: 5px;
+    width:100px;
+    height:50px;
+    font-size: 12px;
+}
+#wrapper{
+    width:900px;
+    height:200px;
+    margin: 50px auto;
+    text-align:center;
+}
+.green{
+    background-color:green;
+}
+.blue{
+    background-color:blue;
+}
+.pink{
+    background-color:pink;
+}
+button{
+    margin-top:75px;
+}
