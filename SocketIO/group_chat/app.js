@@ -20,7 +20,6 @@ var server = app.listen(6789, function(){
 var io = socket(server);
 
 var all_users = {};
-var counter = 1;
 var messages = [];
 
 io.on('connection', function(socket){
