@@ -16,7 +16,7 @@ module.exports = {
     },
 
     tasks_task: (request, response) => {
-        Task.findOne({_id: request.params.task}, (err, task) => {
+        Task.findOne({_id: request.params.task_id}, (err, task) => {
             if (err) {
                 console.log("Errors encountered while finding task.");
                 response.redirect('/');

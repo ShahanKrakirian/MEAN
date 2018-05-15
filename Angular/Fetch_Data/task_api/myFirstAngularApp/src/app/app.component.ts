@@ -8,26 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   allTasks = [];
-  oneTask;
+  oneTask = '';
   constructor(private _httpService: HttpService){}
 
   ngOnInit(){
-    this.getTasksFromService();
-    this.getTaskFromService();
   }
 
   getTasksFromService(){
     this._httpService.getTasks().subscribe(data => {
+      this.allTasks=[]
       for (var thing in data.all_tasks){
-        var add = data.all_tasks[thing].title + " - " + data.all_tasks[thing].description;
-        this.allTasks.push(add);
+        this.allTasks.push(data.all_tasks[thing]);
       }
-      console.log(this.allTasks);
     });
   }
-  getTaskFromService(){
-    this._httpService.getTask().subscribe(data => {
-      this.oneTask= data.task.title + " - " + data.task.description;
+  getTaskFromService(task_id){
+    this.oneTask = ''
+    this._httpService.getTask(task_id).subscribe(data => {
+      this.oneTask = data.task;
     });
   }
+
 }

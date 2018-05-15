@@ -6,7 +6,7 @@ module.exports = (app) => {
         controller.index(request,response);
     })
 
-    app.get('/tasks/:task', (request, response) => {
+    app.get('/tasks/:task_id', (request, response) => {
         controller.tasks_task(request,response);
     })
     

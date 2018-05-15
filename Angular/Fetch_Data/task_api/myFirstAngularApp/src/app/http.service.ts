@@ -11,7 +11,7 @@ export class HttpService {
     getTasks(){
       return this._http.get('/index')
     }
-    getTask(){
-      return this._http.get('tasks/5af5e1062c93ab2f943dc207')
+    getTask(task_id){
+      return this._http.get('tasks/'+task_id)
     }
 }
