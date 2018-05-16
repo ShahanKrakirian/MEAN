@@ -45,3 +45,7 @@ button{
 .top-scores p{
     margin-top: -15px;
 }
+.bold{
+    font-weight:bold;
+    text-decoration:underline;
+}
