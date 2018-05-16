@@ -51,6 +51,7 @@ export class AppComponent {
 
     this._httpService.saveGame(this.gold, this.game_id.name).subscribe(data => {
       this.game_code = data.game_code;
+      this.topScoresFromService();
     })
   }
 

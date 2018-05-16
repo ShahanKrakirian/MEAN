@@ -1,0 +1,11 @@
+#wrapper{
+    margin: 50px auto;
+    width: 670px;
+}
+.border{
+    border: 1px solid black;
+    width: 250px;
+}
+.inline-block{
+    display:inline-block;
+}

@@ -1,10 +1,10 @@
 <div id="wrapper">
   <div class='inline-block'>
-      <h1>Ninja Gold!</h1><br>
+      <h1>Ninja Gold!</h1>
       <h1>Total gold: {{gold}}</h1>
   </div> 
   <div class='top-scores inline-block'>
-      <p class='bold'>Top Scores:</p>
+      <p class='bold'>Top Scores:</p><br>
       <p *ngFor="let document of top_scores">{{document.name}} : {{document.score}}</p>
     </div>
   <div class="actions inline-block">

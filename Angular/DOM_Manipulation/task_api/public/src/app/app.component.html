@@ -1,0 +1,58 @@
+<div id="wrapper">
+
+  <!--CREATING NEW TASK-->
+
+  <div id="new_task">
+    <h3>New Task</h3>
+    <form (submit)="newTaskFromService()">
+      <table>
+          <tr>
+            <td>Title</td>
+            <td><input type="text" name="task.title" [(ngModel)]="task.title"></td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td><input type="text" name="task.description" [(ngModel)]="task.description"></td>
+          </tr>
+      </table>
+      <button type='submit'>Create</button>
+    </form>
+  </div>
+
+  <!--TASK LIST-->
+
+  <div id="task_list" class='inline-block'>
+    <h3>Task List</h3>
+    <div *ngFor="let item of all_tasks" class='border'>
+      <table>
+        <tr>
+          <td><h3 class='inline-block'>{{item.title}}</h3></td>
+          <td><button (click)="openEdit(item)">Edit</button></td>
+        </tr>
+        <tr>
+          <td><h5 class='inline-block'>{{item.description}}</h5></td>
+          <td><button (click)="deleteTaskFromService(item)">Delete</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="inline-block" *ngIf="edit_button == 1">
+      <div class='inline-block border'>
+        <h3>Edit</h3>
+          <form (submit)="editTaskFromService()">
+            <table>
+                <tr>
+                  <td>Title</td>
+                  <td><input type="text" name="edit_task.title" [(ngModel)]="edit_task.title"></td>
+                </tr>
+                <tr>
+                  <td>Description</td>
+                  <td><input type="text" name="edit_task.description" [(ngModel)]="edit_task.description"></td>
+                </tr>
+              </table>
+              <button type='submit'>Edit</button>
+            </form>
+        </div>
+  </div>
+
+</div>
