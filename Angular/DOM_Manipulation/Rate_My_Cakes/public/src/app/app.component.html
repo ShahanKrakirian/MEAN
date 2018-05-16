@@ -1,0 +1,54 @@
+<div id="wrapper">
+
+  <!--CREATING NEW CAKE-->
+
+  <div id="new_cake" class="inline-block border">
+    <h3>New Cake</h3>
+    <form (submit)="newCakeFromService()">
+      <table>
+          <tr>
+            <td>Baker Name:</td>
+            <td><input type="text" name="newCake.baker" [(ngModel)]="newCake.baker"></td>
+          </tr>
+          <tr>
+            <td>Image URL:</td>
+            <td><input type="text" name="newCake.image" [(ngModel)]="newCake.image"></td>
+          </tr>
+      </table>
+      <button type='submit'>Create</button>
+    </form>
+    <br>
+  </div>
+
+  <!--ALL CAKES AND RATING-->
+
+  <div id="all_cakes" class='inline-block border padding'>
+    <!--To hold whole thing-->
+    <div *ngFor="let cake of allCakes" class='margin-bottom cake inline-block'>
+      <!--To hold cake-->
+      <div class='cake_holder inline-block'>
+        <button (click)="showCake(cake)"><img src="{{cake.image}}" alt="Whoops."></button>
+      </div>
+      <!--To hold rating section-->
+      <div class='inline-block margin-left form'>
+        <form (submit)="addReviewFromService(cake._id)">
+          Rating:
+          <select name="cakeRating" [(ngModel)]="cakeRating.stars">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+          <textarea name="cakeComment" cols="20" rows="5" placeholder="Comment" [(ngModel)]="cakeRating.comment"></textarea>
+          <input type="submit" value='Rate!'>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--SHOW-->
+  <br><br>
+  <app-show *ngIf='showingCake' [cakeToShow]='showingCake'></app-show>
+
+</div>

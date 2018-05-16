@@ -1,0 +1,19 @@
+#show_component{
+    height: 300px;
+}
+#show_component_photo_bucket{
+    height:200px;
+    width: 200px;
+}
+#show_component_details{
+    width:200px;
+    vertical-align:top;
+    margin-left: 20px;
+}
+.inline-block{
+    display:inline-block;
+}
+img{
+    max-width: 100%;
+    max-height:100%;
+}

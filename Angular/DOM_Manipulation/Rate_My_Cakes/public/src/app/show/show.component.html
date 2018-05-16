@@ -1,0 +1,10 @@
+<h2>Baked by: {{cakeToShow.baker}}</h2>
+<div id="show_component">
+  <div id="show_component_photo_bucket" class='inline-block'>
+    <img src="{{cakeToShow.image}}" alt="Whoops.">
+  </div>
+  <div id="show_component_details" class='inline-block'>
+    <p>Average stars: {{average}}</p>
+    <p *ngFor="let review of cakeToShow.ratings">{{review.comment}} {{review.stars}} Stars.</p>
+  </div>
+</div>
