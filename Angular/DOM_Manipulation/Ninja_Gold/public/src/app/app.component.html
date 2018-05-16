@@ -1,0 +1,48 @@
+<div id="wrapper">
+  <div class='inline-block'>
+      <h1>Ninja Gold!</h1><br>
+      <h1>Total gold: {{gold}}</h1>
+  </div> 
+  <div class='top-scores inline-block'>
+      <p>Top Scores:</p>
+      <p *ngFor="let document of top_scores">{{document.name}} : {{document.score}}</p>
+    </div>
+  <div class="actions inline-block">
+      <form (submit)="saveGameFromService()">
+        <input type="text" name="game_id.name" [(ngModel)]="game_id.name" placeholder="Enter your name">
+        <button type="submit">Save Game</button>
+      </form>
+      <span *ngIf="game_code != 0" class='small-font'>Remember your game code: {{game_code}}</span>
+      <br><br>
+      <form (submit)="loadGameFromService()">
+        <input type="text" name='game_id.id' [(ngModel)]="game_id.id" placeholder="Enter your game code">
+        <button type="submit">Load Game</button>
+      </form>
+  </div>
+  <br><br>
+  <div id="areas">
+    <div>
+      <h4>Farm</h4>
+      <p>Earns 2-5 Gold</p>
+      <button (click)="farmFromService()">Farm!</button>
+    </div>
+    <div>
+      <h4>Cave</h4>
+      <p>Earns 5-10 Gold</p>
+      <button (click)="caveFromService()">Cave!</button>
+    </div>
+    <div>
+      <h4>House</h4>
+      <p>Earns 7-15 Gold</p>
+      <button (click)="houseFromService()">House!</button>
+    </div>
+    <div>
+      <h4>Casino</h4>
+      <p>Earn or lose up to 100 Gold</p>
+      <button (click)="casinoFromService()">Casino!</button>
+    </div>
+  </div>
+  <div id="textbox">
+    <p *ngFor="let message of game_messages">{{message}}</p>
+  </div>
+</div>
