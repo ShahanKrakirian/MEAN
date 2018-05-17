@@ -1,0 +1,16 @@
+.border{
+    border: 1px solid black;
+}
+.new_box{
+    width: 200px;
+    height: 150px;
+}
+button{
+    background-color:#9de7ff;
+    color:white;
+    font-weight:bold;
+    width: 90px;
+    height:20px;
+    border-radius:5px;
+    margin-left: 4px;
+}

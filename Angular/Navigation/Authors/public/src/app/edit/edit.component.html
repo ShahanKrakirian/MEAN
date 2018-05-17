@@ -1,0 +1,15 @@
+<a [routerLink]="['/']">Home</a>
+
+<p>Add a new author:</p>
+
+<div class='border new_box'>
+  <p>Name:</p>
+  <form (submit)="updateAuthorFromService()">
+    <input *ngIf="toUpdate" type="text" name="name" [(ngModel)]="toUpdate.name">
+    <br><br>
+    <button type='button' [routerLink]="['/']">Cancel</button>
+    <button type='submit'>Submit</button>
+    
+  </form>
+</div>
+<p *ngIf="errors">{{errors}}</p>

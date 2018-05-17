@@ -1,0 +1,14 @@
+<a [routerLink]="['/']">Home</a>
+
+<p>Add a new author:</p>
+
+<div class='border new_box'>
+  <p>Name:</p>
+  <form (submit)="addAuthorFromService()">
+    <input type="text" name="name" [(ngModel)]="toAdd.name">
+    <br><br>
+    <button type='button' [routerLink]="['/']">Cancel</button>
+    <button type='submit'>Submit</button>
+  </form>
+</div>
+<p *ngIf="errors">{{errors.error}}</p>
