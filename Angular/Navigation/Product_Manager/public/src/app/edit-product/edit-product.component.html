@@ -1,0 +1,23 @@
+<div id='wrapper'>
+    <h2>Edit Product</h2>
+    <form (submit)="editProductFromService()" class='left'>
+      <table>
+        <tr>
+          <td>Title</td>
+          <td><input *ngIf="currentProduct" type="text" name="title" [(ngModel)]="currentProduct.title"></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <table><input *ngIf="currentProduct" type="text" name='price' [(ngModel)]="currentProduct.price"></table>
+        </tr>
+        <tr>
+          <td>Image URL</td>
+          <td><input *ngIf="currentProduct" type="text" name='image_url' [(ngModel)]="currentProduct.image_url"></td>
+        </tr>
+      </table>
+      <button type='submit' class='edit'>Edit</button>
+      <button type='button' (click)="backToProducts()" class='cancel'>Cancel</button>
+    </form>
+    <p *ngFor="let error of errors">{{error}}</p> 
+  
+  </div>

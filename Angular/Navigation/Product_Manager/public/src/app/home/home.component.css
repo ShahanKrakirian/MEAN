@@ -1,0 +1,8 @@
+div{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 500px;
+    margin: 50px auto;
+    text-align:left;
+    padding: 10px;
+}

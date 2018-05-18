@@ -1,0 +1,23 @@
+#wrapper{
+    margin: 50px auto;
+    width: 800px;
+    text-align:center;
+}
+.left{
+    margin-left: 280px;
+}
+button{
+    color:white;
+    font-weight:bold;
+    width: 60px;
+    height:20px;
+    border-radius:5px;
+    margin-left: 4px;
+}
+.edit{
+    background-color:lightgreen;
+}
+.cancel{
+    background-color:lightcoral;
+    margin: 20px 200px 0px 0px;
+}

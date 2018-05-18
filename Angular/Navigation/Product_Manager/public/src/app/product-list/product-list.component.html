@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Products List</h2>
+    <div *ngFor="let product of allProducts" class='outer-image-bucket inline-block'>
+        <div class='inner-image-bucket'>
+            <img src="{{product.image_url}}" alt="Whoops.">
+        </div>
+        <p>{{product.title}}</p>
+        <p>${{product.price}}</p>
+        <button [routerLink]="['/products/edit/', product._id]">Edit</button>
+        <button (click)="deleteProductFromService(product)">Delete</button>
+    </div>
+</div>

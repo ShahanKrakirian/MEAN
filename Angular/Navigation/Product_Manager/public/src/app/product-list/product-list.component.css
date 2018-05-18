@@ -1,0 +1,32 @@
+.outer-image-bucket{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 150px;
+    height: 210px;
+    padding: 10px;
+    margin-left: 10px;
+}
+.inner-image-bucket{
+    height:100px;
+    width:145px;
+}
+button{
+    background-color:#9de7ff;
+    color:white;
+    font-weight:bold;
+    width: 60px;
+    height:20px;
+    border-radius:5px;
+    margin-left: 4px;
+}
+.inline-block{
+    display:inline-block;
+}
+img{
+    max-height:100%;
+    max-width:100%;
+}
+div{
+    vertical-align:top;
+    margin-top:10px;
+}

@@ -1,0 +1,23 @@
+<div id='wrapper'>
+  <h2>Create a new Product</h2>
+  <form (submit)="addProductFromService()" class='left'>
+    <table>
+      <tr>
+        <td>Title</td>
+        <td><input type="text" name="title" [(ngModel)]="productToAdd.title"></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <table><input type="text" name='price' [(ngModel)]="productToAdd.price"></table>
+      </tr>
+      <tr>
+        <td>Image URL</td>
+        <td><input type="text" name='image_url' [(ngModel)]="productToAdd.image_url"></td>
+      </tr>
+    </table>
+    <button type='submit' class='create'>Create</button>
+    <button type='button' (click)="backToProducts()" class='cancel'>Cancel</button>
+  </form>
+  <p *ngFor="let error of errors">{{error}}</p> 
+
+</div>
